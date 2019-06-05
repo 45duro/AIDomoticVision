@@ -8,9 +8,7 @@ def mostrarImagen(imagen):
     cv2.waitKey()
 
 
-
-
-filename = "rostro.jpeg"
+filename = "LinuxLogo.jpg"
 
 #Leer la imagen
 img = cv2.imread(filename)
