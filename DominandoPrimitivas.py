@@ -11,6 +11,8 @@ def mostrarImagen(imagen):
 
 def main():
     
+    #Funciones cv2.line(), cv2.circle() , cv2.rectangle(), cv2.ellipse(), 
+    
     #Creacion del array
     #recuerda (profundo, alto, ancho) ;D
     img = np.zeros((512, 512, 3), np.uint8)
