@@ -9,9 +9,8 @@ headers = {
 params = urllib.parse.urlencode({
     # Request parameters
     'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': '{string}',
-    'recognitionModel': 'recognition_01',
+    'returnFaceAttributes': 'age',
+    'recognitionModel': 'recognition_02',
     'returnRecognitionModel': 'false',
     'detectionModel': 'detection_01',
 })
