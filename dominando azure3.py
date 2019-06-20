@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw
 import cognitive_face as CF
 import cv2
 
-KEY = 'b0655492a6224e5f8b272d92cbd1138c'
+KEY = '0940819f2504421da8f7f2621517752b'
 CF.Key.set(KEY)
 
 
