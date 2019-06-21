@@ -22,6 +22,7 @@ def generate_sas_token():
 
     #con b64decode(sign_key) en el segundo argumento varia el token
     #con None en el segundo siempre queda igual
+    
     flag = b64decode(sign_key)
     digest_maker = HMAC.new(b64decode(KEY), flag, sha256)
     signature = b64encode(digest_maker.digest())
@@ -45,14 +46,15 @@ def dataTemp():
 
 
 def send_message(token, message):
-    url = 'https://{0}/devices/{1}/messages/events?api-version=2016-11-14'.format(URI, IOT_DEVICE_ID)
-    #url = 'https://fully-qualified-iothubname.azure-devices.net/devices/{1}/messages/events?api-version=2018-06-30'.format(URI, IOT_DEVICE_ID)
-    
+    #url = 'https://{0}/devices/{1}/messages/events?api-version=2016-11-14'.format(URI, IOT_DEVICE_ID)
+    url = 'https://{0}/devices/{1}/messages/events?api-version=2018-06-30'.format(URI, IOT_DEVICE_ID)
+    print(token)
     headers = {
         "Content-Type": "application/json",
         "Authorization": token
     }
     data = json.dumps(message)
+    
     #print(data)
     response = requests.post(url, data=data, headers=headers)
 
@@ -72,7 +74,7 @@ if __name__ == '__main__':
 
     data = []#Para hacer el json
     flag = True
-    for i in range(0,200,1):
+    for i in range(0,10000,1):
         temp = dataTemp()
         tiempoactual = str(time.strftime("%c"))
         message = { 
@@ -98,7 +100,7 @@ if __name__ == '__main__':
 
         #Agregar al registro
         data.append(message)
-        time.sleep(0.5)
+        time.sleep(1)
 
         # sys.stdout.write("Sample finished running. When you hit <any key>, the sample will be deleted and the sample application will exit.")
         # sys.stdout.flush()
